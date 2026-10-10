@@ -16,13 +16,15 @@ Die Vorschau kennzeichnet den lokalen Modus sichtbar. Persönliche Datensätze u
 3. Im Editor `setup_` einmal ausführen und Google-Zugriff bestätigen. Es legt `App_*`-Tabellen an. Bestehende Tabellen bleiben unverändert.
 4. Bereitstellen → Neue Bereitstellung → Web-App. **Ausführen als: Nutzer, der auf die Web-App zugreift. Zugriff: Nur ich.** Nicht öffentlich bereitstellen.
 5. Die neue Webapp öffnen. Der Banner muss **Google Sheets verbunden** zeigen. Einen eigenen Testschritt anlegen, im `App_Aufgaben`-Tab prüfen, abhaken und erneut laden.
-6. Ab dann sind die `App_*`-Tabellen führend für Appdaten. Vorhandene alte Aufgaben/Projekte einmal kontrolliert übernehmen; nicht parallel zwei aktive Listen führen. Die UI-Sicherung lässt sich mit JSON importieren.
+6. Ab dann sind die `App_*`-Tabellen führend für Appdaten. Vorhandene alte Aufgaben/Projekte einmal kontrolliert übernehmen; nicht parallel zwei aktive Listen führen. In der vorbereiteten Projektzentrale sind diese Tabellen bereits mit dem ersten Stand angelegt. Die UI-Sicherung lässt sich mit JSON importieren.
 
 Die App prüft die eingeloggte Eigentümeradresse, verweigert unbekannte Benutzer und schützt gegen konkurrierende Änderungen über Prüfsummen. Vor Schreibvorgängen werden Zeilen in `App_Backups` gesichert; eine fehlgeschlagene Änderung wird zurückgesetzt. Keine Tokens oder Passwörter im Frontend. Kein offener API-Proxy.
 
 ## Entwicklung
 
 `node --check dist/app.js`
+
+`node --test tests/state.test.cjs`
 
 `python3 scripts/build-apps-script.py`
 
